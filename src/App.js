@@ -7,13 +7,20 @@ function App() {
   const onChange=(event)=>setKeyword(event.target.value);
   const [keyword,setKeyword]=useState("");
   const onClick=()=>setValue((prev)=>prev+1);
-  console.log('all time run')
   useEffect(()=>{
-    console.log("call the API once")
+    console.log("once run") //한번만 불러옴
   },[]);
-  useEffect(()=>{
-    console.log(keyword)
-  },[keyword])
+  useEffect(()=>{ 
+    if(keyword!==""){
+    console.log("keyword changed")
+    }
+  },[keyword]) //키워드가 바뀔때만 불러옴
+  useEffect(()=>{ 
+    if(counter!==0){
+      console.log("counter changed")
+    }
+  },[counter])
+
   return (
     <div>
       <input value={keyword} onChange={onChange} type="text" placeholder="Search"></input>
