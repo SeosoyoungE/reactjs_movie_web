@@ -20,6 +20,9 @@ function App() {
       console.log("counter changed")
     }
   },[counter])
+  useEffect(()=>{
+    console.log("counter or keyword changed")
+  },[keyword,counter])
 
   return (
     <div>
