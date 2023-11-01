@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Hello(){
+  useEffect(()=>{
+    console.log("i'm here")
+  },[])
   return <h1>Hello</h1>
 }
 
