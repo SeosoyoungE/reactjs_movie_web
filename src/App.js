@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
 function Hello(){
-  useEffect(()=>{
-    console.log("created~")
-    return ()=>console.log("destroyed")
-  },[])
+  const destroyFn=()=>{
+    console.log("destroy")
+  }
+  const effectFn=()=>{
+    console.log("created~") //생성될때 호출
+    return destroyFn; //return값에 넣어주면 삭제될때 호출
+  }
+  useEffect(effectFn,[])
   return <h1>Hello</h1>
 }
 
